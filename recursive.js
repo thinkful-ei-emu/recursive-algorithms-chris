@@ -1,0 +1,3 @@
+const countSheep = function(num) {
+
+};
