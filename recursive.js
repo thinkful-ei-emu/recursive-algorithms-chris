@@ -110,39 +110,126 @@
 // };
 // console.log(mazeEscape('RRDDLLDDRRRRRR'));
 
-let newMaze = [
-  [' ', ' ', ' ', '*', ' ', ' ', ' '],
-  ['*', '*', ' ', '*', ' ', '*', ' '],
-  [' ', ' ', ' ', ' ', ' ', ' ', ' '],
-  [' ', '*', '*', '*', '*', '*', ' '],
-  [' ', ' ', ' ', ' ', ' ', ' ', 'e']
-];
-const solveMaze = (maze, ud=0,lr=0) => {
-  let str = '';
-  if(maze[ud][lr] === 'e'){
-    return str;
-  }
-  //   if(!maze[ud] || !maze[ud][lr]
-  //     || maze[ud][lr+1] === '*'
-  //     || maze[ud][lr-1] === '*'
-  //     || maze[ud+1][lr] === '*'
-  //     || maze[ud-1][lr] === '*'){
-  //     return false;
-  //   }
-  if(maze[ud][lr+1] === ' '){
-    return str.concat('', 'R') + solveMaze(maze, ud, lr+1);
-  }if(maze[ud][lr-1] === ' '){
-    return str.concat('', 'L') + solveMaze(maze, ud, lr-1);
-  }if(maze[ud+1] === ' '){
-    return str.concat('', 'D') + solveMaze(maze, ud+1, lr);
-  }if(maze[ud-1] === ' '){
-    return str.concat('', 'U') + solveMaze(maze, ud-1, lr);
-  }
-  return 'Path to the exit: ' + str;
-};
+// let newMaze = [
+//   [' ', ' ', ' ', '*', ' ', ' ', ' '],
+//   ['*', '*', ' ', '*', ' ', '*', ' '],
+//   [' ', ' ', ' ', ' ', ' ', ' ', ' '],
+//   [' ', '*', '*', '*', '*', '*', ' '],
+//   [' ', ' ', ' ', ' ', ' ', ' ', 'e']
+// ];
+// const solveMaze = (maze, position=0, ud=0,lr=0, direction='S', str = []) => {
+//   console.log('ud:', direction);
+//   if(ud < 0 || lr < 0){
+//     return;
+//   }
+//   if(ud>=maze.length || lr>=maze[0].length){
+//     return;
+//   }
+//   str[position] = direction;
+//   position++;
+//   if(maze[ud][lr] === 'e'){
+//     return 'Found path to the exit: ' + str;
+//   }
+//   if(maze[ud][lr] === ' '){
+//     maze[ud][lr] = 's';
+//     solveMaze(maze, position, ud, lr+1, 'R', str);
+//     solveMaze(maze, position, ud, lr-1, 'L', str);
+//     solveMaze(maze, position, ud+1, lr, 'D', str);
+//     solveMaze(maze, position, ud-1, lr, 'U', str);
+//     maze[ud][lr] = ' ';
+//   }
+//   position--;
+// };
 
-console.log(solveMaze(newMaze));
+// console.log(solveMaze(newMaze, 0, 0, 0, 'S', []));
 
+// function anagrams(prefix, str){
+//   if(str.length <= 1){
+//     console.log(`The anagram is ${prefix}${str}`);
+//   } else {
+//     for(let i=0; i<str.length; i++){
+//       let currentLetter = str.substring(i, i+1); 
+//       let previousLetters = str.substring(0,i);
+//       let afterLetters = str.substring(i+1);
+//       anagrams(prefix+currentLetter, previousLetters+afterLetters);
+//     }
+//   }
+// }
+// console.log(anagrams(' ', 'cheese'));
+
+// function orgChart(data, indent = 0) {
+//   let space = ' '.repeat(indent * 4);
+//   Object.keys(data).forEach(key => {
+//     console.log(space + key);
+//     orgChart(data[key], indent + 1);
+//   });
+// }
+
+// let organization = {
+//   'Zuckerberg': {		
+//     'Schroepfer': {
+//       'Bosworth': {
+//         'Steve':{},
+//         'Kyle':{},
+//         'Andra':{}
+//       },
+//       'Zhao': {
+//         'Richie':{},
+//         'Sofia':{},
+//         'Jen':{}
+//       },
+//       'Badros': {
+//         'John':{},
+//         'Mike':{},
+//         'Pat':{}
+//       },
+//       'Parikh': {
+//         'Zach':{},
+//         'Ryan':{},
+//         'Tes':{}
+//       }
+//     },
+//     'Schrage': {
+//       'VanDyck': {
+//         'Sabrina':{},
+//         'Michelle':{},
+//         'Josh':{}
+//       },
+//       'Swain': {
+//         'Blanch':{},
+//         'Tom':{},
+//         'Joe':{}
+//       },
+//       'Frankovsky': {
+//         'Jasee':{},
+//         'Brian':{},
+//         'Margaret':{}
+//       }
+//     },
+//     'Sandberg': {
+//       'Goler': {
+//         'Eddie':{},
+//         'Julie':{},
+//         'Annie':{}
+//       },
+//       'Hernandez': {
+//         'Rowi':{},
+//         'Inga':{},
+//         'Morgan':{}
+//       },
+//       'Moissinac': {
+//         'Amy':{},
+//         'Chuck':{},
+//         'Vinni':{}
+//       },
+//       'Kelley': {
+//         'Eric':{},
+//         'Ana':{},
+//         'Wes':{}
+//       }
+//     }}};
+
+// orgChart(organization);
 
 //input: 5      3
 //output: 101   11
